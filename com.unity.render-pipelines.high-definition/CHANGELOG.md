@@ -45,6 +45,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Added a separate frame settings for tonemapping alongside color grading.
 - Added the receive fog option in the material UI for ShaderGraphs.
 - Added a public virtual bool in the custom post processes API to specify if a post processes should be executed in the scene view.
+- Added a menu option that checks scene issues with ray tracing. Also removed the previously existing warning at runtime.
+- Added APIs to update probe settings at runtime.
 
 ### Fixed
 - Sorting, undo, labels, layout in the Lighting Explorer.
@@ -296,6 +298,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Fixed a warning in raytracingshadowfilter.compute
 - Fixed issue with AO breaking with small near plane values.
 - Fixed custom post process Cleanup function not called in some cases.
+- Fixed shader warning in AO code.
+- Fixed a warning in simpledenoiser.compute
+- Fixed tube and rectangle light culling to use their shape instead of their range as a bounding box.
 - Fixing unnecessary memory allocations in the ray tracing cluster build
 
 ### Changed
@@ -343,6 +348,7 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - The scene view camera now replicates the physical parameters from the camera tagged as "MainCamera".
 - Reduced the number of GC.Alloc calls, one simple scene without plarnar / probes, it should be 0B.
 - Renamed ProfilingSample to ProfilingScope and unified API. Added GPU Timings.
+- Updated macros to be compatible with the new shader preprocessor.
 - Ray tracing reflection temporal filtering is now done in pre-exposed space
 - Search field selects the appropriate fields in both project settings panels 'HDRP Default Settings' and 'Quality/HDRP'
 - Disabled the refraction and transmission map keywords if the material is opaque.
